@@ -17,30 +17,48 @@
 
 </style>
 
+<script type="text/javascript">
+
+	function send(f){
+		var name	=	f.name.value;
+		
+		
+		
+		f.action='main.do?menu=ticket' //변경 menu=ticket 띄워주는 서블릿 호출
+		f.submit();
+	}
+
+
+</script>
+
+
+
 </head>
 <body>
-	<c:forEach begin="1" end="5">
+	<c:forEach var="vo" items="${list}">
 	<div id="movie_chart">
-		<table>
-			<tr>
-				<td>영화번호</td>
-			</tr>
-			<tr>
-				<td>포스터</td>
-			</tr>
-			<tr>
-				<td>영화이름</td>
-			</tr>
-			<tr>
-				<td>예매율</td>
-			</tr>
-			<tr>
-				<td>개봉일자</td>
-			</tr>
-			<tr>
-				<td><input type="button" value="예매하기" onclick="location.href='main.do?menu=ticket';"></td>
-			</tr>
-		</table>
+		<form>
+			<table>
+				<tr>
+					<td>${vo.name }</td>
+				</tr>
+				<tr>
+					<td>${vo.name }포스터</td>
+				</tr>
+				<tr>
+					<td>${vo.name }영화이름</td>
+				</tr>
+				<tr>
+					<td>${vo.name }예매율</td>
+				</tr>
+				<tr>
+					<td>${vo.name }개봉일자</td>
+				</tr>
+				<tr>
+					<td><input type="button" value="예매하기" onclick="send(this.form);"></td>
+				</tr>
+			</table>
+		</form>
 	</div>
 	</c:forEach>
 </body>
