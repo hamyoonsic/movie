@@ -9,7 +9,7 @@
 <body>
 	<div id="payment">
 		결제수단선택
-		<input type="button" value="결제하기" onclick="location.href='login/mypage.jsp';">
+		<input type="button" value="결제하기" onclick="location.href='main.do?menu=mypage';">
 	</div>
 </body>
 </html>

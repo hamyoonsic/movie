@@ -8,8 +8,8 @@
 </head>
 <body>
 <input type="button" value="home" onclick="location.href='main.do';">
-<input type="button" value="로그인" onclick="location.href='login/login.jsp';">
-<input type="button" value="회원가입" onclick="location.href='login/signup.jsp';">
-<input type="button" value="마이페이지" onclick="location.href='login/mypage.jsp';">
+<input type="button" value="로그인" onclick="location.href='main.do?menu=login';">
+<input type="button" value="회원가입" onclick="location.href='main.do?menu=signup';">
+<input type="button" value="마이페이지" onclick="location.href='main.do?menu=mypage';">
 </body>
 </html>

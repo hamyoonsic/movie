@@ -65,6 +65,24 @@
 			</div>
 		</c:if>
 		
+		<c:if test="${param.menu eq 'login'}">
+			<div id="content">
+				<%@include file="member/login_content.jsp"%>
+			</div>
+		</c:if>
+		
+		<c:if test="${param.menu eq 'mypage'}">
+			<div id="content">
+				<%@include file="member/mypage_content.jsp"%>
+			</div>
+		</c:if>
+		
+		<c:if test="${param.menu eq 'signup'}">
+			<div id="content">
+				<%@include file="member/signup_content.jsp"%>
+			</div>
+		</c:if>
+		
 		
 		
 		
