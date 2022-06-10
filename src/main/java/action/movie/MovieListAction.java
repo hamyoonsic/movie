@@ -1,4 +1,4 @@
-package action;
+package action.movie;
 
 import java.io.IOException;
 
@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MainAction
+ * Servlet implementation class MovieListAction
  */
-@WebServlet("/main.do")
-public class MainAction extends HttpServlet {
+//메인페이지
+@WebServlet("/movie/list.do")
+public class MovieListAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -23,11 +24,16 @@ public class MainAction extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		
+		
+		
+		
 		//forward
-		String forward_page = "main.jsp";
+		String forward_page = "movie_list.jsp";
 		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
 		disp.forward(request, response);
 
 	}
 
 }
+
