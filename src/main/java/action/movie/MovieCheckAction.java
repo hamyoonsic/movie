@@ -35,13 +35,18 @@ public class MovieCheckAction extends HttpServlet {
 		
 		//List<CinemaVo> c_list	=	new ArrayList<CinemaVo>();
 		
-		boolean bResult	=	true;
+		//선택한 영화 idx번호를 통해 그 영화에 해당하는 상영관.극장정보 좌석 날짜 
+		//정보를 얻어온다
 		
-		for(ShowVo vo : list) {
-			
-			if(vo.getC_idx()==null) bResult=false;
-			
-		}
+		// ???
+		
+		// 날짜를 선택하면 이미 값이 있는 테이블의 값을 읽어오는 건지?
+		
+		// 상영하는 날짜만?
+		
+		// 날짜를 정하면 그 날짜가 테이블에 insert되는건지...
+		
+		
 
 	}
 
