@@ -6,7 +6,6 @@ public class SeatVo {
 	String s_name;
 	String s_check;
 	String s_price;
-	int	t_idx;
 	
 	
 	public int getS_idx() {
@@ -33,12 +32,7 @@ public class SeatVo {
 	public void setS_price(String s_price) {
 		this.s_price = s_price;
 	}
-	public int getT_idx() {
-		return t_idx;
-	}
-	public void setT_idx(int t_idx) {
-		this.t_idx = t_idx;
-	}
+	
 	
 	
 }

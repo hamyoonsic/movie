@@ -5,7 +5,6 @@ public class TheaterVo {
 	int t_idx;
 	String t_name;
 	String t_seat;
-	int c_idx;
 	
 	
 	public int getT_idx() {
@@ -26,12 +25,7 @@ public class TheaterVo {
 	public void setT_seat(String t_seat) {
 		this.t_seat = t_seat;
 	}
-	public int getC_idx() {
-		return c_idx;
-	}
-	public void setC_idx(int c_idx) {
-		this.c_idx = c_idx;
-	}
+
 	
 	
 

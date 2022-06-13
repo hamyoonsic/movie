@@ -8,37 +8,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 import service.DBService;
-import vo.TheaterVo;
+import vo.ShowVo;
 
-public class TheaterDao {
-
+public class ShowDao {
+		
+	
 	//single-ton : 객체 1개만 생성해서 사용하자
-	static TheaterDao single = null;
+	static ShowDao single = null;
 
-	public static TheaterDao getInstance() {
+	public static ShowDao getInstance() {
 
 		//객체가 없으면 생성해라
 		if (single == null)
-			single = new TheaterDao();
+			single = new ShowDao();
 
 		return single;
 	}
 
 	//외부에서 생성하지 말것
-	private TheaterDao() {
+	private ShowDao() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public List<ShowVo> selectList(int m_idx) {
+
+		List<ShowVo> list = new ArrayList<ShowVo>();
+
 		
-	
-	
-	public List<TheaterVo> selectList() {
-
-		List<TheaterVo> list = new ArrayList<TheaterVo>();
-
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from theater";
+		String sql = "select * from show where m_idx=?";
 
 		try {
 			//1.Connection얻어오기
@@ -46,6 +46,8 @@ public class TheaterDao {
 
 			//2.PreparedStatment얻어오기
 			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, m_idx);
 
 			//3.ResultSet얻어오기
 			rs = pstmt.executeQuery();
@@ -55,16 +57,14 @@ public class TheaterDao {
 				//rs가 가리키는 행(레코드)의 값을 읽어온다
 
 				//Vo로 포장
-				TheaterVo vo = new TheaterVo();
+				ShowVo vo = new ShowVo();
 				
+				vo.setM_idx(m_idx);
+				vo.setC_idx(rs.getInt("c_idx"));
 				vo.setT_idx(rs.getInt("t_idx"));
-				vo.setT_name(rs.getString("t_name"));
-				vo.setT_name(rs.getString("t_seat"));
+				vo.setS_idx(rs.getInt("s_idx"));
+
 				
-				
-				
-				//list추가
-				list.add(vo);
 			}
 
 		} catch (Exception e) {
@@ -88,4 +88,5 @@ public class TheaterDao {
 
 		return list;
 	}
+	
 }

@@ -11,8 +11,6 @@ create table movie
 	m_release		date,						--영화개봉일자
 	m_r_time		varchar2(100),				--영화상영시간
 	m_age			varchar2(100) default 'all',--영화나이제한
-	c_idx			int,						--(극장번호)
-	t_idx			int							--(상영관번호)
 )
 
 alter table movie
@@ -57,7 +55,6 @@ create table theater
 	t_idx			int,						--상영관번호
 	t_name			varchar2(100) not null,		--상영관이름
 	t_seat			int,						--상영괸총좌석갯수
-	c_idx			int							--(극장번호)
 )
 
 alter table theater
@@ -78,8 +75,7 @@ create table seat
 	s_idx			int,						--좌석번호
 	s_name			varchar2(100) not null,		--좌석이름
 	s_check			varchar2(100),				--좌석예매유무
-	s_price		varchar2(100),				--좌석가격
-	t_idx			int							--(상영관번호)
+	s_price		varchar2(100),					--좌석가격
 	
 )
 
@@ -153,5 +149,30 @@ alter table ticket
 	add constraint fk_ticket_mem_idx foreign key(mem_idx)
 										references member(mem_idx);
 										
-										
+---------------------------------[ show ]--------------------------------
+
+
+create table show
+(
+	m_idx		int,
+	c_idx		int,
+	t_idx		int,
+	s_idx		int
+
+)
+alter table show
+	add constraint fk_show_m_idx foreign key(m_idx)
+									references movie(m_idx);
+
+alter table show
+	add constraint fk_show_c_idx foreign key(c_idx)
+									references movie(c_idx);
+									
+alter table show
+	add constraint fk_show_t_idx foreign key(t_idx)
+									references movie(t_idx);
+									
+alter table show
+	add constraint fk_show_s_idx foreign key(s_idx)
+									references movie(s_idx);													
 */

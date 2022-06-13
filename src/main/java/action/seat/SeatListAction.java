@@ -1,4 +1,4 @@
-package action.movie;
+package action.seat;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,15 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import dao.MovieDao;
-import vo.MovieVo;
+import dao.SeatDao;
+import vo.SeatVo;
 
 /**
- * Servlet implementation class MovieListAction
+ * Servlet implementation class SeatListAction
  */
-//메인페이지
-@WebServlet("/movie_list.do")
-public class MovieListAction extends HttpServlet {
+@WebServlet("/seat_list.do")
+public class SeatListAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -29,20 +28,17 @@ public class MovieListAction extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		List<MovieVo> list	= MovieDao.getInstance().selectList();
+		List<SeatVo> list	=	SeatDao.getInstance().selectList();
 		
 		JSONObject json	=	new JSONObject();
 		
-		json.put("m_list", list);
+		json.put("s_list", list);
 		
 		String json_str	=	json.toJSONString();
 		
 		response.setContentType("text/json; charset=utf-8;");
 		response.getWriter().print(json_str);
-		
-		
 
 	}
 
 }
-

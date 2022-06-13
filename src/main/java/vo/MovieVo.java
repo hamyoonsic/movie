@@ -7,8 +7,6 @@ public class MovieVo {
 	String m_release;
 	String m_r_time;
 	String m_age;
-	int c_idx;
-	int t_idx;
 	
 	
 	public int getM_idx() {
@@ -47,17 +45,6 @@ public class MovieVo {
 	public void setM_age(String m_age) {
 		this.m_age = m_age;
 	}
-	public int getC_idx() {
-		return c_idx;
-	}
-	public void setC_idx(int c_idx) {
-		this.c_idx = c_idx;
-	}
-	public int getT_idx() {
-		return t_idx;
-	}
-	public void setT_idx(int t_idx) {
-		this.t_idx = t_idx;
-	}
+	
 	
 }

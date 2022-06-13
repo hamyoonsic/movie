@@ -1,25 +1,23 @@
-package action.movie;
-
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONObject;
-
-import dao.MovieDao;
-import vo.MovieVo;
+import dao.ShowDao;
+import vo.CinemaVo;
+import vo.ShowVo;
 
 /**
- * Servlet implementation class MovieListAction
+ * Servlet implementation class MovieCheckAction
  */
-//메인페이지
-@WebServlet("/movie_list.do")
-public class MovieListAction extends HttpServlet {
+@WebServlet("/movie_check.do")
+public class MovieCheckAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -29,18 +27,21 @@ public class MovieListAction extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		List<MovieVo> list	= MovieDao.getInstance().selectList();
+		request.setCharacterEncoding("utf-8");
 		
-		JSONObject json	=	new JSONObject();
+		int m_idx	=	Integer.parseInt(request.getParameter("m_idx"));
 		
-		json.put("m_list", list);
+		List<ShowVo> list	=	ShowDao.getInstance().selectList(m_idx);
 		
-		String json_str	=	json.toJSONString();
+		//List<CinemaVo> c_list	=	new ArrayList<CinemaVo>();
 		
-		response.setContentType("text/json; charset=utf-8;");
-		response.getWriter().print(json_str);
+		boolean bResult	=	true;
 		
-		
+		for(ShowVo vo : list) {
+			
+			if(vo.getC_idx()==null) bResult=false;
+			
+		}
 
 	}
 
