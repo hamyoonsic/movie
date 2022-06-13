@@ -6,9 +6,29 @@
     
 <!DOCTYPE html>
 <html>
+ <link rel="stylesheet" href="css/main.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function movie_select(i){
+		$('.movie').css("background-color", "#dff0d8");
+		$('.movie').eq(i-1).css("background-color", "#d0e9c6");
+	}
+	
+	function loc_select(i){
+		$('.theater').css("background-color", "#d9edf7");
+		$('.theater').eq(i-1).css("background-color", "#c4e3f3");
+	}
+	
+	function date_select(i){
+		$('.date1').css("background-color", "#fcf8e3");
+		$('.date1').eq(i-1).css("background-color", "#faf2cc");
+	}
+</script>
 </head>
 <body>
 메인페이지
@@ -93,7 +113,7 @@
 		</c:if>
 		
 	</div>
-<hr>
+<hr style="clear: both;">
 	
 </body>
 </html>

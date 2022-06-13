@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+#main_box{
+	width: 600px;
+	margin: auto;
+	border: 1px solid red;
+}
+#header{
+	border: 1px solid blue;
+}
+#content{
+	border: 1px solid green;
+}
+#footer{
+	clear: both;
+	border: 1px solid yellow;
+}
+a{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: none;
+}
