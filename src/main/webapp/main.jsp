@@ -14,14 +14,59 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <script type="text/javascript">
-	function movie_select(i){
+	function movie_select(index, m_idx){
 		$('.movie').css("background-color", "#dff0d8");
-		$('.movie').eq(i-1).css("background-color", "#d0e9c6");
+		$('.movie').eq(index).css("background-color", "#d0e9c6");
+		//var a = $('.movie').eq(i-1).text().trim();
+		//console.log(a);
+		/* $.ajax({
+			url: 'movie_check.do',
+			data: { 'm_idx': m_idx },
+			dataType: 'json',
+			success: function(res_data){
+				$('.cinema').attr("disabled", true);
+				$('.cinema').css("color", "gray");
+				
+				for(Object o : $('.cinema')){
+					for(var i=0; i<res_data.size; i++){
+						if(o.text()==res_data[i])
+							$('.cinema').attr("disabled", false);
+							$('.cinema').css("color", "");
+					}
+				}
+			},
+			error: function(err){
+				alert(err.responseText);
+			}
+		}); */
+		
 	}
 	
-	function loc_select(i){
-		$('.theater').css("background-color", "#d9edf7");
-		$('.theater').eq(i-1).css("background-color", "#c4e3f3");
+	function loc_select(index, c_idx){
+		$('.cinema').css("background-color", "#d9edf7");
+		$('.cinema').eq(index).css("background-color", "#c4e3f3");
+		
+		/* $.ajax({
+			url: 'cinema_check.do',
+			data: { 't_idx': t_idx },
+			dataType: 'json',
+			success: function(res_data){
+				for(var i=0; i<res_data.size; i++){
+					var a = $('<div>' + res_data[i].t_name + 
+								'관(총 ' + res_data[i].t_name +'석)<br><hr></div>');
+					var b = $('<div class="row">'+
+						    '<div class="col-sm-4" style="width: 100px; background-color:lavender; margin-right: 5px;">13:00</div>'+
+						    '<div class="col-sm-4" style="width: 100px; background-color:lavenderblush; margin-right: 5px;">15:00</div>'+
+						    '<div class="col-sm-4" style="width: 100px; background-color:lavender;">17:00</div></div>');
+					a.append(b);
+					$('#theater').append(a);
+				}
+			},
+			error: function(err){
+				alert(err.responseText);
+			}
+		}); */
+		
 	}
 	
 	function date_select(i){

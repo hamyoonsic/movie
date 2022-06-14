@@ -39,11 +39,26 @@
 	#time{
 		/* display		:	inline-block;  */
 		float: left;
+		overflow: scroll;
 	}
+	
+	a:link{
+		text-decoration: none;
+	}
+	
+	a:visitied{
+		text-decoration: none;
+	}
+	
 	
 	a:hover{
 		text-decoration: none;
 	}
+	
+	a:active{
+		text-decoration: none;
+	}
+	
 
 </style>
 <script type="text/javascript">
@@ -54,6 +69,8 @@
 		for(var i=0; i<10; i++)
 			$('.day').eq(i).html(day+i);
 	})
+	
+	
 </script>
 </head>
 <body>
@@ -62,10 +79,10 @@
 		<div id="movie" align="center">
 		<div id="movie_title">영화</div>
 			<table class="table table-hover" border="1">
-				<c:forEach begin="1" end="10" var="i">
+				<c:forEach items="${ movie_list }" var="vo" varStatus="i">
 					<tr class="success">
 						<td class="movie" >
-							<a href="#" onclick="movie_select(${i}); return false;">영화${ i }</a>
+							<a href="#" onclick="movie_select(${ i.index }, ${ vo.m_idx }); return false;">${ vo.m_name }</a>
 						</td>
 					</tr>
 				</c:forEach>
@@ -77,10 +94,10 @@
 		<div id="location">
 		<div id="theater_title">극장</div>
 			<table class="table table-hover" border="1">
-				<c:forEach begin="1" end="10" var="i">
+				<c:forEach items="${ cinema_list }" var="vo" varStatus="i">
 					<tr class="info">
-						<td class="theater" >
-							<a href="#" onclick="loc_select(${i}); return false;">위치${ i }</a>
+						<td class="cinema" >
+							<a href="#" onclick="loc_select(${ i.index }, ${ vo.c_idx }); return false;">${ vo.c_name }</a>
 						</td>
 					</tr>
 				</c:forEach>
@@ -103,10 +120,9 @@
 	
 	<div id="time">
 		<div id="time_title">시간</div>
-		<c:forEach begin="1" end="3" var="i">
-			${ i }관(총 ?석)<br>
-			<hr>
-		</c:forEach>
+		<div id="theater">
+
+		</div>
 	</div>
 	
 	</div>
