@@ -1,3 +1,5 @@
+package action.movie;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONObject;
 
 import dao.ShowDao;
 import vo.CinemaVo;
@@ -31,20 +35,20 @@ public class MovieCheckAction extends HttpServlet {
 		
 		int m_idx	=	Integer.parseInt(request.getParameter("m_idx"));
 		
-		List<ShowVo> list	=	ShowDao.getInstance().selectList(m_idx);
+		List<ShowVo> cinema_list	=	ShowDao.getInstance().select_Cinema_List(m_idx);
 		
-		//List<CinemaVo> c_list	=	new ArrayList<CinemaVo>();
+		//request.setAttribute("cinema_list", cinema_list);
 		
-		//선택한 영화 idx번호를 통해 그 영화에 해당하는 상영관.극장정보 좌석 날짜 
-		//정보를 얻어온다
+		JSONObject json	=	new JSONObject();
 		
-		// ???
+		json.put("cinema_list", cinema_list);
+		String json_str	=	json.toJSONString();
 		
-		// 날짜를 선택하면 이미 값이 있는 테이블의 값을 읽어오는 건지?
 		
-		// 상영하는 날짜만?
+		response.setContentType("text/json; charset=utf-8;");
+		response.getWriter().print(json_str);
 		
-		// 날짜를 정하면 그 날짜가 테이블에 insert되는건지...
+		
 		
 		
 

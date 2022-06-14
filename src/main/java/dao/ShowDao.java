@@ -30,7 +30,8 @@ public class ShowDao {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public List<ShowVo> selectList(int m_idx) {
+	public List<ShowVo> select_Cinema_List(int m_idx) {
+		
 
 		List<ShowVo> list = new ArrayList<ShowVo>();
 
@@ -38,7 +39,7 @@ public class ShowDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from show where m_idx=?";
+		String sql = "select c_idx from show where m_idx=?";
 
 		try {
 			//1.Connection얻어오기
@@ -61,8 +62,7 @@ public class ShowDao {
 				
 				vo.setM_idx(m_idx);
 				vo.setC_idx(rs.getInt("c_idx"));
-				vo.setT_idx(rs.getInt("t_idx"));
-				vo.setS_idx(rs.getInt("s_idx"));
+			
 
 				
 			}

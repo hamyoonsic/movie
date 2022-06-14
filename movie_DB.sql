@@ -10,7 +10,7 @@ create table movie
 	m_rate			int,						--영화예매율
 	m_release		date,						--영화개봉일자
 	m_r_time		varchar2(100),				--영화상영시간
-	m_age			varchar2(100) default 'all',--영화나이제한
+	m_age			varchar2(100) default 'all'	--영화나이제한
 )
 
 alter table movie
@@ -20,15 +20,8 @@ alter table movie
 	add constraint check_m_rate	check(m_rate between 0 and 100);
 
 alter table movie
-	add constraint check_m_age	check(m_age in ('all', '15세', '19세'));
+	add constraint check_m_age	check(m_age in ('전체이용가', '15세', '19세'));
 	
-alter table movie
-	add constraint fk_movie_c_idx foreign key(c_idx)
-									references cinema(c_idx);
-	
-alter table movie
-	add constraint fk_movie_t_idx foreign key(t_idx)
-									references theater(t_idx);
 
 
 
@@ -48,24 +41,28 @@ alter table cinema
 
 ---------------------------------[  theater ]------------------------------
 
-create sequence seq_theater_idx
+create sequence seq_theater_idx 
+				minvalue 1
+				maxvalue 9
+				cycle
+				nocache;
+				
+				drop sequence seq_theater_idx 
 
 create table theater
 (
 	t_idx			int,						--상영관번호
 	t_name			varchar2(100) not null,		--상영관이름
-	t_seat			int,						--상영괸총좌석갯수
+	t_seat			varchar2(100)				--상영괸총좌석갯수
 )
 
 alter table theater
 	add constraint pk_theater_t_idx primary key(t_idx);
 
-alter table theater
-	add constraint fk_theater_c_idx foreign key(c_idx)
-										references cinema(c_idx);
 
 
----------------------------------[  seat ]--------------------------------
+
+---------------------------------[  seat  사용안함 ]--------------------------------
 
 
 create sequence seq_seat_idx
@@ -121,7 +118,6 @@ create table ticket
 	m_idx			int,						--(영화번호)
 	c_idx			int,						--(극장번호)
 	t_idx			int,						--(상영관번호)
-	s_idx			int,						--(좌석번호)
 	mem_idx			int							--(회원번호)
 	
 )
@@ -141,10 +137,7 @@ alter table ticket
 	add constraint fk_ticket_t_idx foreign key(t_idx)
 										references theater(t_idx);
 										
-alter table ticket
-	add constraint fk_ticket_s_idx foreign key(s_idx)
-										references seat(s_idx);	
-																																											
+																																						
 alter table ticket
 	add constraint fk_ticket_mem_idx foreign key(mem_idx)
 										references member(mem_idx);
@@ -156,8 +149,7 @@ create table show
 (
 	m_idx		int,
 	c_idx		int,
-	t_idx		int,
-	s_idx		int
+	t_idx		int
 
 )
 alter table show
@@ -166,13 +158,11 @@ alter table show
 
 alter table show
 	add constraint fk_show_c_idx foreign key(c_idx)
-									references movie(c_idx);
+									references cinema(c_idx);
 									
 alter table show
 	add constraint fk_show_t_idx foreign key(t_idx)
-									references movie(t_idx);
+									references theater(t_idx);
 									
-alter table show
-	add constraint fk_show_s_idx foreign key(s_idx)
-									references movie(s_idx);													
+													
 */
