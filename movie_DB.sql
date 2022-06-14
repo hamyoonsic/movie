@@ -72,7 +72,7 @@ create table seat
 	s_idx			int,						--좌석번호
 	s_name			varchar2(100) not null,		--좌석이름
 	s_check			varchar2(100),				--좌석예매유무
-	s_price		varchar2(100)					--좌석가격
+	s_price		varchar2(100),					--좌석가격
 	
 )
 
@@ -86,21 +86,37 @@ alter table seat
 
 										
 ---------------------------------[  member ]--------------------------------
+drop sequence seq_member_mem_idx
 
+drop table member
 
-create sequence seq_member_idx
+create sequence seq_member_mem_idx
 
 create table member
 (
-	mem_idx			int,						--회원번호
-	mem_name		varchar2(100),				--회원이름
-	mem_tel			varchar2(100),				--회원전화번호
-	mem_age			int							--회원나이
-	
+	mem_idx		int,							--일련번호
+	mem_name		varchar2(100) not null,			--이름
+	mem_id		varchar2(100) not null,			--아이디
+	mem_pwd		varchar2(100) not null, 		--비밀번호
+	mem_zipcode	varchar2(100) 		  ,			--우편번호
+	mem_addr		varchar2(500) 		  , 		--주소
+	mem_grade		varchar2(100) default	'일반' ,	--회원등급(일반/관리자)
+	mem_ip		varchar2(100),					--IP
+	mem_regdate	date			
 )
 
+
+--기본키 
 alter table member
 	add constraint pk_member_mem_idx primary key(mem_idx);
+
+--아이디 unique
+alter table member
+	add constraint unique_memeber_mem_id unique(mem_id);
+	
+--회원 등급의 체크 제약
+alter table member
+	add constraint ck_member_mem_grade check(mem_grade in('일반','관리자') );
 
 
 
