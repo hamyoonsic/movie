@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import service.DBService;
+import vo.CinemaVo;
 import vo.ShowVo;
+import vo.CinemaVo;
 
 public class ShowDao {
 		
@@ -30,7 +32,7 @@ public class ShowDao {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public List<ShowVo> select_Cinema_List(int m_idx) {
+	public List<ShowVo> select_C_idx_List(int m_idx) {
 		
 
 		List<ShowVo> list = new ArrayList<ShowVo>();
@@ -39,7 +41,7 @@ public class ShowDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select c_idx from show where m_idx=?";
+		String sql = "select distinct c_idx from show where m_idx=?"; 
 
 		try {
 			//1.Connection얻어오기
@@ -57,14 +59,12 @@ public class ShowDao {
 			while (rs.next()) {
 				//rs가 가리키는 행(레코드)의 값을 읽어온다
 
-				//Vo로 포장
-				ShowVo vo = new ShowVo();
+				ShowVo vo	=	new ShowVo();
 				
-				vo.setM_idx(m_idx);
 				vo.setC_idx(rs.getInt("c_idx"));
 			
 
-				
+				list.add(vo);
 			}
 
 		} catch (Exception e) {
@@ -88,5 +88,8 @@ public class ShowDao {
 
 		return list;
 	}
+	
+
+	
 	
 }

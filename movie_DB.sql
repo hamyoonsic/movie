@@ -72,7 +72,7 @@ create table seat
 	s_idx			int,						--좌석번호
 	s_name			varchar2(100) not null,		--좌석이름
 	s_check			varchar2(100),				--좌석예매유무
-	s_price		varchar2(100),					--좌석가격
+	s_price		varchar2(100)					--좌석가격
 	
 )
 
