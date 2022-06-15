@@ -20,7 +20,7 @@ alter table movie
 	add constraint check_m_rate	check(m_rate between 0 and 100);
 
 alter table movie
-	add constraint check_m_age	check(m_age in ('전체이용가', '15세', '19세'));
+	add constraint check_m_age	check(m_age in ('all', '15세', '19세'));
 	
 
 

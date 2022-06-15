@@ -158,6 +158,7 @@ insert into show values(
 select * from all_tables
 
 select distinct * from show order by c_idx
+select * from show
 
 select * from movie
 
@@ -171,30 +172,40 @@ delete from theater where t_idx>=1
 
 ALTER SEQUENCE seq_theater_idx INCREMENT BY 1;
 
+drop table movie CASCADE CONSTRAINTS
+drop table theater CASCADE CONSTRAINTS
 
+alter table theater drop column c_idx;
+
+
+	
 
 create or replace view show_cinema_view
 as
-	select 
-		m_idx,c_idx
-	from show
-	
-
-
 select distinct 
-	show_cinema_view.m_idx, 
-	cinema.c_idx,cinema.c_name,cinema.c_location 
-from show_cinema_view left outer join cinema 
-on show_cinema_view.c_idx=cinema.c_idx 
-where show_cinema_view.m_idx=2 
+	show.m_idx,
+	cinema.c_idx,cinema.c_name,cinema.c_location
+from show left outer join cinema 
+on show.c_idx=cinema.c_idx 
 order by c_idx
 
 drop view show_cinema_view
 
 
+select distinct c_idx,c_name from show_cinema_view where m_idx=1
 
 
 
 
+create or replace view show_theater_view
+as
+select distinct
+	show.m_idx, show.c_idx,
+	theater.t_idx, theater.t_name,theater.t_seat
+from show left outer join theater
+on show.t_idx=theater.t_idx
+order by theater.t_idx
+
+select distinct t_idx,t_name,t_seat from show_theater_view where m_idx=3 and c_idx=1 order by t_idx
 
 */
