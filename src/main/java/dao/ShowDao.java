@@ -32,16 +32,16 @@ public class ShowDao {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public List<ShowVo> select_C_idx_List(int m_idx) {
+	public List<CinemaVo> select_Cinema_List(int m_idx) {
 		
 
-		List<ShowVo> list = new ArrayList<ShowVo>();
+		List<CinemaVo> list = new ArrayList<CinemaVo>();
 
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select distinct c_idx from show where m_idx=?"; 
+		String sql = "select distinct show_cinema_view.m_idx, cinema.c_idx,cinema.c_name,cinema.c_location from show_cinema_view left outer join cinema on show_cinema_view.c_idx=cinema.c_idx where show_cinema_view.m_idx=? order by c_idx"; 
 
 		try {
 			//1.Connection얻어오기
@@ -59,10 +59,11 @@ public class ShowDao {
 			while (rs.next()) {
 				//rs가 가리키는 행(레코드)의 값을 읽어온다
 
-				ShowVo vo	=	new ShowVo();
+				CinemaVo vo	=	new CinemaVo();
 				
 				vo.setC_idx(rs.getInt("c_idx"));
-			
+				vo.setC_name(rs.getString("c_name"));
+				vo.setC_location(rs.getString("c_location"));
 
 				list.add(vo);
 			}

@@ -7,7 +7,7 @@
       		driverClassName="oracle.jdbc.driver.OracleDriver"
       		factory="org.apache.commons.dbcp.BasicDataSourceFactory"
       		url="jdbc:oracle:thin:@localhost:1521/xe"
-      		username="test" password="test" 
+      		username="test7" password="test7" 
       		maxActive="5" maxIdle="10" maxWait="1"/>
       		
       		
