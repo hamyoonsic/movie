@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 
 <style type="text/css">
@@ -22,17 +22,17 @@
 		
 		<table>
 			<tr>
-				<td>¿µÈ­ÀÌ¸§</td>
-				<td>°³ºÀÀÏ</td>
+				<td>ì˜í™”ì´ë¦„</td>
+				<td>ê°œë´‰ì¼</td>
 			</tr>
 			
 			<tr>
-				<td>»ó¿µ°ü</td>
-				<td>ÃÑÁÂ¼®</td>
+				<td>ìƒì˜ê´€</td>
+				<td>ì´ì¢Œì„</td>
 			</tr>
 			
 			<tr>
-				<td><input type="button" value="23:30 159¼®" onclick="location.href='main.do?menu=seat';"></td>
+				<td><input type="button" value="23:30 159ì„" onclick="location.href='main.do?menu=seat';"></td>
 			</tr>
 		</table>
 		<hr>

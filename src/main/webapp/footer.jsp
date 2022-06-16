@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<div id="movie_chart">
-	¹«ºñÂ÷Æ®(¿¹¸ÅÀ² ³ôÀº¼øÀ§ ¿µÈ­º¸¿©ÁÖ±â)
+	ë¬´ë¹„ì°¨íŠ¸(ì˜ˆë§¤ìœ¨ ë†’ì€ìˆœìœ„ ì˜í™”ë³´ì—¬ì£¼ê¸°)
 	</div>
 </body>
 </html>

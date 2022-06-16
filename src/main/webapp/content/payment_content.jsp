@@ -1,15 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<div id="payment">
-		搬力荐窜急琶
-		<input type="button" value="搬力窍扁" onclick="location.href='main.do?menu=mypage';">
+		瓴办牅靾橂嫧靹犿儩
+		<input type="button" value="瓴办牅頃橁赴" onclick="location.href='main.do?menu=mypage';">
 	</div>
 </body>
 </html>

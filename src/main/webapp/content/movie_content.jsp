@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 
 <style type="text/css">
@@ -24,7 +24,7 @@
 		
 		
 		
-		f.action='main.do?menu=ticket' //º¯°æ menu=ticket ¶ç¿öÁÖ´Â ¼­ºí¸´ È£Ãâ
+		f.action='main.do?menu=ticket' //ë³€ê²½ menu=ticket ë„ì›Œì£¼ëŠ” ì„œë¸”ë¦¿ í˜¸ì¶œ
 		f.submit();
 	}
 
@@ -43,19 +43,19 @@
 					<td>${vo.name }</td>
 				</tr>
 				<tr>
-					<td>${vo.name }Æ÷½ºÅÍ</td>
+					<td>${vo.name }í¬ìŠ¤í„°</td>
 				</tr>
 				<tr>
-					<td>${vo.name }¿µÈ­ÀÌ¸§</td>
+					<td>${vo.name }ì˜í™”ì´ë¦„</td>
 				</tr>
 				<tr>
-					<td>${vo.name }¿¹¸ÅÀ²</td>
+					<td>${vo.name }ì˜ˆë§¤ìœ¨</td>
 				</tr>
 				<tr>
-					<td>${vo.name }°³ºÀÀÏÀÚ</td>
+					<td>${vo.name }ê°œë´‰ì¼ì</td>
 				</tr>
 				<tr>
-					<td><input type="button" value="¿¹¸ÅÇÏ±â" onclick="send(this.form);"></td>
+					<td><input type="button" value="ì˜ˆë§¤í•˜ê¸°" onclick="send(this.form);"></td>
 				</tr>
 			</table>
 		</form>

@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	фВ╫╨ем<br>
-	©╣х╜юл╦╖<br>
-	©╧╦ею╡<br>
-	<input type="button" value="©╧╦его╠Б" onclick="location.href='main.do?menu=ticket';">
+	М▐╛Л┼╓М└╟<br>
+	Л≤│М≥■Л²╢К╕└<br>
+	Л≤┬К╖╓Л°╗<br>
+	<input type="button" value="Л≤┬К╖╓М∙≤Й╦╟" onclick="location.href='main.do?menu=ticket';">
 	
 </body>
 </html>

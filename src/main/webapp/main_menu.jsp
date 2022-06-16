@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 
 <style type="text/css">
@@ -18,9 +18,9 @@
 <body>
 	<br>
 	<div class="menu">
-		<input type="button" value="¿µÈ­" onclick="location.href='main.do?menu=movie';">
-		<input type="button" value="±ØÀå" onclick="location.href='main.do?menu=theater';">
-		<input type="button" value="¿¹¸Å" onclick="location.href='main.do?menu=ticket';">
+		<input type="button" value="ì˜í™”" onclick="location.href='main.do?menu=movie';">
+		<input type="button" value="ê·¹ì¥" onclick="location.href='main.do?menu=theater';">
+		<input type="button" value="ì˜ˆë§¤" onclick="location.href='main.do?menu=ticket';">
 	</div>
 	<br>
 </body>
