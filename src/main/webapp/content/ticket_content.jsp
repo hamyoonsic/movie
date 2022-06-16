@@ -13,6 +13,8 @@
 
 <style type="text/css">
 	#ticketing_box{
+		width: 600px;
+		height: 400px;
 		overflow: hidden; 
 	}
 	
@@ -38,8 +40,10 @@
 	
 	#time{
 		/* display		:	inline-block;  */
+		height: 100%;
 		float: left;
-		overflow: scroll;
+		overflow-y: scroll;
+		overflow-x: hidden; 
 	}
 	
 	a:link{
@@ -75,10 +79,11 @@
 </head>
 <body>
 	<div id="ticketing_box">
+	
 	<div id="ticketing">
 		<div id="movie" align="center">
 		<div id="movie_title">영화</div>
-			<table class="table table-hover" border="1">
+			<table border="1">
 				<c:forEach items="${ movie_list }" var="vo" varStatus="i">
 					<tr class="table-success">
 						<td class="movie" >
@@ -93,7 +98,7 @@
 	<div id="theater">
 		<div id="location">
 		<div id="theater_title">극장</div>
-			<table class="table table-hover" border="1">
+			<table border="1">
 				<c:forEach items="${ cinema_list }" var="vo" varStatus="i">
 					<tr class="table-info">
 						<td class="cinema" >
@@ -107,7 +112,7 @@
 	
 	<div id="date">
 		<div id="date_title">날짜</div>
-			<table class="table table-hover" border="1">
+			<table border="1">
 				<c:forEach begin="1" end="10" var="i">
 					<tr class="table-warning">
 						<td class="date1">
@@ -120,7 +125,7 @@
 	
 	<div id="time">
 		<div id="time_title">시간</div>
-		<div id="theater">
+		<div id="seat">
 
 		</div>
 	</div>

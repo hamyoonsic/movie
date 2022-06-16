@@ -37,17 +37,17 @@ public class CinemaCheckAction extends HttpServlet {
 		
 		JSONObject json	=	new JSONObject();
 		
-		int idx	;
+		String name="";
 		String seat	="";
 		//String name="";
 		
 		for(TheaterVo vo : theater_list) {
-			idx	=	vo.getT_idx();
+			name	=	vo.getT_name();
 			seat	=	vo.getT_seat();
 			
 			//name	=	vo.getT_name();
 			
-			json.put(idx, seat);
+			json.put(name, seat);
 			
 		}
 
