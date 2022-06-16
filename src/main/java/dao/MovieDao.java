@@ -1,5 +1,6 @@
 package dao;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,11 +8,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
 import service.DBService;
+import service.MyBatisConnector;
 import vo.MovieVo;
 
 public class MovieDao {
 	
+		SqlSessionFactory factory;
+		
 		//single-ton : 객체 1개만 생성해서 사용하자
 		static MovieDao single = null;
 
@@ -27,6 +34,7 @@ public class MovieDao {
 		//외부에서 생성하지 말것
 		private MovieDao() {
 			// TODO Auto-generated constructor stub
+			factory =MyBatisConnector.getInstance().getSqlSessionFactory();
 		}
 	
 
@@ -89,6 +97,24 @@ public class MovieDao {
 				}
 			}
 
+			return list;
+		}
+
+		public List<MovieVo> selectSearchMovieList(String search_text) {
+			// TODO Auto-generated method stub
+			List<MovieVo> list =null;
+			
+			//작업자를 만든다
+			SqlSession sqlSession = factory.openSession();
+			
+			list = sqlSession.selectList("movie.movie_search_list",search_text);
+			
+			sqlSession.close();
+			
+					
+			
+			
+			
 			return list;
 		}
 }

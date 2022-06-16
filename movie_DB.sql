@@ -118,7 +118,7 @@ alter table member
 alter table member
 	add constraint ck_member_mem_grade check(mem_grade in('일반','관리자') );
 
-
+select * from member 
 
 ---------------------------------[  ticket ]--------------------------------
 
@@ -179,6 +179,22 @@ alter table show
 alter table show
 	add constraint fk_show_t_idx foreign key(t_idx)
 									references theater(t_idx);
+									
+									
+									
+									
+---------------------------------
+
+select * 
+
+
+from 
+
+
+movie  	where and where 						
+									
+									
+									
 									
 													
 */
