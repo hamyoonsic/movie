@@ -7,7 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
 import service.DBService;
+import service.MyBatisConnector;
 import vo.CinemaVo;
 import vo.ShowVo;
 import vo.TheaterVo;
@@ -15,6 +19,7 @@ import vo.CinemaVo;
 
 public class ShowDao {
 		
+	SqlSessionFactory factory;
 	
 	//single-ton : 객체 1개만 생성해서 사용하자
 	static ShowDao single = null;
@@ -31,9 +36,10 @@ public class ShowDao {
 	//외부에서 생성하지 말것
 	private ShowDao() {
 		// TODO Auto-generated constructor stub
+		factory	=	MyBatisConnector.getInstance().getSqlSessionFactory();
 	}
 	
-	public List<CinemaVo> select_Cinema_List(int m_idx) {
+	public List<CinemaVo> select_Movie_List(int m_idx) {
 		
 
 		List<CinemaVo> list = new ArrayList<CinemaVo>();
@@ -91,7 +97,7 @@ public class ShowDao {
 		return list;
 	}
 
-	public List<TheaterVo> select_Theater_List(int m_idx,int c_idx) {
+	public List<TheaterVo> select_Cinema_List(int m_idx,int c_idx) {
 
 		List<TheaterVo> list = new ArrayList<TheaterVo>();
 
@@ -150,6 +156,7 @@ public class ShowDao {
 
 		return list;
 	}
+
 	
 
 	

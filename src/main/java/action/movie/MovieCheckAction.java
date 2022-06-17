@@ -36,7 +36,7 @@ public class MovieCheckAction extends HttpServlet {
 		
 		
 		
-		List<CinemaVo> cinema_list	=	ShowDao.getInstance().select_Cinema_List(m_idx);
+		List<CinemaVo> cinema_list	=	ShowDao.getInstance().select_Movie_List(m_idx);
 		
 		
 		
