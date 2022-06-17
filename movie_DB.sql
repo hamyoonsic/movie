@@ -20,7 +20,7 @@ alter table movie
 	add constraint check_m_rate	check(m_rate between 0 and 100);
 
 alter table movie
-	add constraint check_m_age	check(m_age in ('傈眉捞侩啊', '15技', '19技'));
+	add constraint check_m_age	check(m_age in ('all', '15技', '19技'));
 	
 
 
@@ -118,7 +118,7 @@ alter table member
 alter table member
 	add constraint ck_member_mem_grade check(mem_grade in('老馆','包府磊') );
 
-
+select * from member 
 
 ---------------------------------[  ticket ]--------------------------------
 
@@ -179,6 +179,22 @@ alter table show
 alter table show
 	add constraint fk_show_t_idx foreign key(t_idx)
 									references theater(t_idx);
+									
+									
+									
+									
+---------------------------------
+
+select * 
+
+
+from 
+
+
+movie  	where and where 						
+									
+									
+									
 									
 													
 */

@@ -1,17 +1,36 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>    
     
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+function logout(){
+	
+	if(confirm("ì •ë§ ë¡œê·¸ì•„ì›ƒ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?") ==false)
+		return;
+	
+	location.href ="logout.do";
+	
+}
+
+
+</script>
 </head>
 <body>
-<input type="button" value="home" onclick="location.href='main.do';">
-<input type="button" value="·Î±×ÀÎ" onclick="location.href='login_form.do?menu=login';">
-<input type="button" value="È¸¿ø°¡ÀÔ" onclick="location.href='member_insert.do?menu=signup';">
-<input type="button" value="¸¶ÀÌÆäÀÌÁö" onclick="location.href='main.do?menu=mypage';">
+	<input type="button" value="home" onclick="location.href='main.do';">
+		<c:if test="${empty user }">
+			<input type="button" value="ë¡œê·¸ì¸" onclick="location.href='login_form.do?menu=login';">
+			<input type="button" value="íšŒì›ê°€ì…" onclick="location.href='member_insert.do?menu=signup';">
+		</c:if>
+		<c:if test="${not empty user }">
+			<b>${user.mem_name }ë‹˜</b>í™˜ì˜í•©ë‹ˆë‹¤.
+			<input type="button" value="ë§ˆì´í˜ì´ì§€" onclick="location.href='main.do?menu=mypage';">
+			<input type="button" value="ë¡œê·¸ì•„ì›ƒ"  onclick="logout();">
+		</c:if>
 </body>
 </html>

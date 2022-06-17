@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    <!--·Î±×ÀÎ ÆäÀÌÁö  -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <!--ë¡œê·¸ì¸ í˜ì´ì§€  -->
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- Bootstrap 3.x -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -21,7 +21,7 @@ function send (f){
 	
 	if(mem_id==''){
 		
-		alert('¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
+		alert('ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”');
 		f.mem_id.value='';
 		f.mem_id.focus();
 		return;
@@ -32,7 +32,7 @@ function send (f){
 	
 	if(mem_pwd==''){
 		
-		alert('ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
+		alert('ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”');
 		f.mem_pwd.value='';
 		f.mem_pwd.focus();
 		return;
@@ -55,20 +55,20 @@ function send (f){
 	function showMessage(){
 		
 		if("${param.reason eq 'fail_id'}"=="true"){
-			alert('¾ÆÀÌµğ Æ²·È½À´Ï´Ù')
+			alert('ì•„ì´ë”” í‹€ë ¸ìŠµë‹ˆë‹¤')
 			return;
 			
 		}
 		
 		if("${param.reason eq 'fail_pwd'}"=="true"){
 			
-			alert('ºñ¹Ğ¹øÈ£°¡ Æ²·È½À´Ï´Ù')
+			alert('ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤')
 			return;			
 			
 		}
 		
 		if("${param.reason eq 'session_timout'}"=="true"){
-			alert('·Î±×¾Æ¿ô µÇ¾ú½À´Ï´Ù')
+			alert('ë¡œê·¸ì•„ì›ƒ ë˜ì—ˆìŠµë‹ˆë‹¤')
 			return;
 			
 		}
@@ -103,20 +103,20 @@ function send (f){
 
 	<form>
 		<div id="box">
-			<div><h4>·Î±×ÀÎ</h4></div>
+			<div><h4>ë¡œê·¸ì¸</h4></div>
 				<table>
 					<tr>
-						<td>¾ÆÀÌµğ</td>
+						<td>ì•„ì´ë””</td>
 						<td><input name="mem_id" value="${param.mem_id }"></td>
 					</tr>
 					<tr>
-						<td>ºñ¹Ğ¹øÈ£</td>
+						<td>ë¹„ë°€ë²ˆí˜¸</td>
 						<td><input type="password" name="mem_pwd"></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center">
-							<input type="button" value="·Î±×ÀÎ" onclick="send(this.form);">
-							<input type="button" value="¸ñ·Ïº¸±â" onclick="location.href='main.do';">
+							<input type="button" value="ë¡œê·¸ì¸" onclick="send(this.form);">
+							<input type="button" value="ëª©ë¡ë³´ê¸°" onclick="location.href='main.do';">
 						
 						</td>
 					

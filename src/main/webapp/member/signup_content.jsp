@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- Bootstrap 3.x -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -17,7 +17,7 @@
 	
 	$(document).ready(function(){
 		
-		//¾ÆÀÌµğ ÀÔ·ÂÃ¢¿¡¼­ Å°°¡ ÀÔ·Â
+		//ì•„ì´ë”” ì…ë ¥ì°½ì—ì„œ í‚¤ê°€ ì…ë ¥
 		$("#mem_id").keyup(function(evet){
 			
 			var mem_id =$(this).val();
@@ -25,7 +25,7 @@
 			//console.log(m_id);
 		if(regular_id.test(mem_id)==false){
 			
-			$("#id_msg").html("¿µ¹®ÀÚ/¼ıÀÚÁ¶ÇÕÀÇ 3~16ÀÚ¸®¸¸ °¡´ÉÇÕ´Ï´Ù")
+			$("#id_msg").html("ì˜ë¬¸ì/ìˆ«ìì¡°í•©ì˜ 3~16ìë¦¬ë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤")
 						.css("color","red");
 			
 			$("#btn_register").attr("disabled",true);
@@ -41,14 +41,14 @@
 					success:function(res_data){
 						
 						if(res_data.result){
-							$("#id_msg").html("»ç¿ë°¡´ÉÇÑ ¾ÆÀÌµğÀÔ´Ï´Ù")
+							$("#id_msg").html("ì‚¬ìš©ê°€ëŠ¥í•œ ì•„ì´ë””ì…ë‹ˆë‹¤")
 							.css("color","blue");
 							
 							$("#btn_register").attr("disabled",false);
 							
 						}else{
 							
-							$("#id_msg").html("ÀÌ¹Ì »ç¿ëÁßÀÎ ¾ÆÀÌµğÀÔ´Ï´Ù")
+							$("#id_msg").html("ì´ë¯¸ ì‚¬ìš©ì¤‘ì¸ ì•„ì´ë””ì…ë‹ˆë‹¤")
 							.css("color","red");
 							$("#btn_register").attr("disabled",true);
 							
@@ -70,8 +70,8 @@
 	
 	function find(){
 		
-		var width = 500; //ÆË¾÷ÀÇ ³Êºñ
-		var height = 600; //ÆË¾÷ÀÇ ³ôÀÌ
+		var width = 500; //íŒì—…ì˜ ë„ˆë¹„
+		var height = 600; //íŒì—…ì˜ ë†’ì´
 		
 		 new daum.Postcode({
 		        oncomplete: function(data) {
@@ -108,7 +108,7 @@
 		if(mem_name==''){
 			
 			
-			alert("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä");
+			alert("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”");
 			f.mem_name.value='';
 			f.mem_name.focus();
 			
@@ -118,10 +118,10 @@
 			
 		}
 		
-		//ºñ¹øÃ¼Å©
+		//ë¹„ë²ˆì²´í¬
 		if(mem_pwd==''){
 			
-			alert('ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
+			alert('ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”');
 			f.mem_pwd.value='';
 			f.mem_pwd.focus();
 			
@@ -130,19 +130,19 @@
 			
 		}
 		
-		//¿ìÆí¹øÈ£Ã¼Å©
+		//ìš°í¸ë²ˆí˜¸ì²´í¬
 		if(mem_zipcode==''){
 			
-			alert("¿ìÆí¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+			alert("ìš°í¸ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 			f.mem_zipcode.value='';
 			f.mem_zipcode.focus();
 		
 			return;
 		}
-		//ÁÖ¼ÒÃ¼Å©
+		//ì£¼ì†Œì²´í¬
 		if(mem_addr==''){
 			
-			alert('ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
+			alert('ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš”');
 			f.mem_addr.value='';
 			f.mem_addr.focus();
 		
@@ -154,10 +154,10 @@
 			
 		
 		
-		f.action = "insert.do"; //MemberInsertAction(µî±Ş,¾ÆÀÌÇÇ)
+		f.action = "insert.do"; //MemberInsertAction(ë“±ê¸‰,ì•„ì´í”¼)
 		f.submit();
 		
-		alert("ÃàÇÏÇÕ´Ï´Ù ^^ È¸¿ø°¡ÀÔÀÌ ¿Ï·á µÇ¾ú½À´Ï´Ù!!");
+		alert("ì¶•í•˜í•©ë‹ˆë‹¤ ^^ íšŒì›ê°€ì…ì´ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤!!");
 		
 	}
 	
@@ -173,40 +173,40 @@
 <body>
 <form>
 	<div id="box">
-	<div>È¸¿ø°¡ÀÔ</div>
+	<div>íšŒì›ê°€ì…</div>
 	<table>
 		<tr>
-			<th>ÀÌ¸§:</th>
+			<th>ì´ë¦„:</th>
 			<th><input name = "mem_name"></th>
 		</tr>
 		<tr>
-			<th>¾ÆÀÌµğ:</th>
+			<th>ì•„ì´ë””:</th>
 			<td><input name = "mem_id" id="mem_id">
 			<span  id="id_msg"></span>
 			</td>
 		</tr>
 		<tr>
-			<th>ÆĞ½º¿öµå</th>
+			<th>íŒ¨ìŠ¤ì›Œë“œ</th>
 			<th><input type= "password" name="mem_pwd" ></th>
 		
 		</tr>
 		<tr>
-			<th>¿ìÆí¹øÈ£</th>
+			<th>ìš°í¸ë²ˆí˜¸</th>
 			<td>
 			<input id="mem_zipcode" name="mem_zipcode">
-			<input type="button" value="ÁÖ¼ÒÃ£±â"  id ="btn_find" onclick="find();">
+			<input type="button" value="ì£¼ì†Œì°¾ê¸°"  id ="btn_find" onclick="find();">
 			</td>
 		</tr>
 		<tr>
-			<th>ÁÖ¼Ò</th>
+			<th>ì£¼ì†Œ</th>
 			<td><input id= "mem_addr" name="mem_addr" size="60"></td>
 		</tr>
 	
 		<tr>
       		<td colspan="2" align="center">
-      		<input  type="button" value="°¡ÀÔÇÏ±â" id="btn_register" disabled="disabled"
+      		<input  type="button" value="ê°€ì…í•˜ê¸°" id="btn_register" disabled="disabled"
       									onclick="send(this.form);">
-      		<input  type="button" value="¸ñ·Ïº¸±â"
+      		<input  type="button" value="ëª©ë¡ë³´ê¸°"
       								onclick="location.href='main.do'">
       				
       	    </td>

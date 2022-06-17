@@ -35,8 +35,10 @@ public class MemberLoginAction extends HttpServlet {
 		String mem_id = request.getParameter("mem_id");
 		String mem_pwd = request.getParameter("mem_pwd");
 		
-		
+		//System.out.println(mem_id);
 		MemberVo user = MemberDao.getInstance().selectOne(mem_id);
+		
+		
 		
 		if(user==null) {
 			response.sendRedirect("login_form.do?reason=fail_id ");

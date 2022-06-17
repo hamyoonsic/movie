@@ -1,13 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    
-<%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+
 
 <style type="text/css">
 
@@ -17,49 +15,71 @@
 
 </style>
 
+
+
 <script type="text/javascript">
 
-	function send(f){
-		var name	=	f.name.value;
+
+function send(f){
+	var name	=	f.name.value;
+	
+	
+	
+	f.action='main.do?menu=ticket' //ë³€ê²½ menu=ticket ë„ì›Œì£¼ëŠ” ì„œë¸”ë¦¿ í˜¸ì¶œ
+	f.submit();
+}
+
+//ê²€ìƒ‰
+function search(){
+	
+	
+	var search_text=$("#search_text").val();
+	
+	if(search_text==''){
 		
+		alert('ê²€ìƒ‰ì–´ë¥¼ ì…ë ¥í•˜ì„¸ìš”');
+		$("#search_text").val('');
+		$("#search_text").focus();
 		
-		
-		f.action='main.do?menu=ticket' //º¯°æ menu=ticket ¶ç¿öÁÖ´Â ¼­ºí¸´ È£Ãâ
-		f.submit();
+		return;
 	}
+	
+	$.ajax({
+		
+		url:'movie_search.do',
+		data :{'search_text':search_text},
+		
+		success :function(res_data){
+			
+			$('#disp').html(res_data);//movie_listì™€ í•©ì³ì§„ë‹¤ 
+			
+			
+		},error :function(err){
+			alert(err.responsText);
+		}
+		
+	});
+	
+	
+}
+
 
 
 </script>
-
-
-
 </head>
 <body>
-	<c:forEach var="vo" items="${list}">
-	<div id="movie_chart">
-		<form>
-			<table>
-				<tr>
-					<td>${vo.name }</td>
-				</tr>
-				<tr>
-					<td>${vo.name }Æ÷½ºÅÍ</td>
-				</tr>
-				<tr>
-					<td>${vo.name }¿µÈ­ÀÌ¸§</td>
-				</tr>
-				<tr>
-					<td>${vo.name }¿¹¸ÅÀ²</td>
-				</tr>
-				<tr>
-					<td>${vo.name }°³ºÀÀÏÀÚ</td>
-				</tr>
-				<tr>
-					<td><input type="button" value="¿¹¸ÅÇÏ±â" onclick="send(this.form);"></td>
-				</tr>
-			</table>
-		</form>
-	</div>
-	</c:forEach>
+
+	<hr>
+	<div style="text-align: center; margin: 10px;" >
+		
+		<input id ="search_text" value="${param.search_text }">
+		<input type="button" value="ì¡°íšŒ" onclick="search();">
+		</div>
+<hr>
+	
+	<div id="disp"></div>
+	
+
+
 </body>
 </html>

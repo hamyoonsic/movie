@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 
 
@@ -14,8 +14,8 @@
 <body>
 	<div id="video">
 		<hr>
-		¿µÈ­¿¹°íÆí ¿µ»ó
-		<input type="button" value="»ó¼¼º¸±â" onclick="location.href='main.do?menu=m_info';">
+		ì˜í™”ì˜ˆê³ í¸ ì˜ìƒ
+		<input type="button" value="ìƒì„¸ë³´ê¸°" onclick="location.href='main.do?menu=m_info';">
 		<hr>
 	</div>
 	

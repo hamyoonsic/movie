@@ -1,20 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
     
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
  
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 
 <style type="text/css">
 	#ticketing_box{
+		width: 600px;
+		height: 400px;
 		overflow: hidden; 
 	}
 	
@@ -22,12 +22,14 @@
 		/* display		:	inline-block; */
 		float: left;
 		margin-right: 10px;
+		overflow: scroll;
 	}
 	
 	#theater{
 		/* display		:	inline-block; */
 		float: left;
 		margin-right: 10px;
+		overflow: scroll;
 	}
 	
 	#date{
@@ -38,8 +40,10 @@
 	
 	#time{
 		/* display		:	inline-block;  */
+		height: 100%;
 		float: left;
-		overflow: scroll;
+		overflow-y: scroll;
+		overflow-x: hidden; 
 	}
 	
 	a:link{
@@ -75,12 +79,13 @@
 </head>
 <body>
 	<div id="ticketing_box">
+	
 	<div id="ticketing">
 		<div id="movie" align="center">
-		<div id="movie_title">øµ»≠</div>
-			<table class="table table-hover" border="1">
+		<div id="movie_title">ÏòÅÌôî</div>
+			<table border="1">
 				<c:forEach items="${ movie_list }" var="vo" varStatus="i">
-					<tr class="success">
+					<tr class="table-success">
 						<td class="movie" >
 							<a href="#" onclick="movie_select(${ i.index }, ${ vo.m_idx }); return false;">${ vo.m_name }</a>
 						</td>
@@ -92,10 +97,10 @@
 	
 	<div id="theater">
 		<div id="location">
-		<div id="theater_title">±ÿ¿Â</div>
-			<table class="table table-hover" border="1">
+		<div id="theater_title">Í∑πÏû•</div>
+			<table border="1">
 				<c:forEach items="${ cinema_list }" var="vo" varStatus="i">
-					<tr class="info">
+					<tr class="table-info">
 						<td class="cinema" >
 							<a href="#" onclick="loc_select(${ i.index }, ${ vo.c_idx }); return false;">${ vo.c_name }</a>
 						</td>
@@ -106,10 +111,10 @@
 	</div>
 	
 	<div id="date">
-		<div id="date_title">≥Ø¬•</div>
-			<table class="table table-hover" border="1">
+		<div id="date_title">ÎÇ†Ïßú</div>
+			<table border="1">
 				<c:forEach begin="1" end="10" var="i">
-					<tr class="warning">
+					<tr class="table-warning">
 						<td class="date1">
 							<a href="#" class="day" onclick="date_select(${i}); return false;">a</a>
 						</td>
@@ -119,8 +124,8 @@
 	</div>
 	
 	<div id="time">
-		<div id="time_title">Ω√∞£</div>
-		<div id="theater">
+		<div id="time_title">ÏãúÍ∞Ñ</div>
+		<div id="seat">
 
 		</div>
 	</div>
