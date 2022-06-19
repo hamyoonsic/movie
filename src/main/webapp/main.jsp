@@ -23,7 +23,7 @@
 <script type="text/javascript">
 	var movie_idx;
 	var cinema_idx;
-	var day;
+	var day_;
 	var time;
 	var theater_idx;
 	function movie_select(index, m_idx){
@@ -86,14 +86,15 @@
 				    }
 				 $.each(res_data, function(t_name, t_seat) {
 					 //var div_p = $('<div id=""></div>');
-					 var a = $('<div class="theater_idx">' + t_name + 
-								'관(총 ' + t_seat[0] +')</div>');
+					 var a = $('<div id="'+ t_name+'">' + t_seat[0] + 
+								'(총 ' + t_seat[1] +')</div>');
 					 
 					var b = $('<div class="row"></div>');
-					for(var i=1; i<t_seat.length; i++){
+					var str = t_seat[2].split(",");
+					for(var i=0; i<str.length; i++){
 						var c = $(
 					    '<div class="col-sm-4" style="width: 100px; background-color:lavender; margin-right: 5px; margin-bottom: 5px;">'
-					    +t_seat[i]+'</div>');
+					    +str[i].trim()+'</div>');
 						b.append(c);
 					}
 					
@@ -109,12 +110,12 @@
 				})
 				
 				$('.col-sm-4').click(function(){
-					theater_idx = $(this).closest('.row').prev().text().trim().substr(0, 2);
+					theater_idx = $(this).closest('.row').prev().attr('id');
 					//theater_idx = $(this).prev().text().trim().substr(0, 2);
 					time = $(this).text().trim();
 					console.log("영화 idx:" + movie_idx + ", "+
 								"극장 idx:" + cinema_idx + ", "+
-								"날짜:" + day + ", "+
+								"날짜:" + day_ + ", "+
 								"영화 idx:" + theater_idx + ", "+
 								"시간:" + time);
 					$('.col-sm-4').css("background-color", "lavender");
@@ -132,7 +133,7 @@
 	function date_select(i){
 		$('.date1').css("background-color", "#ffeeba");
 		$('.date1').eq(i-1).css("background-color", "#ebdaa6");
-		day = $('.date1').eq(i-1).text().trim();
+		day_ = $('.date1').eq(i-1).text().trim();
 	}
 	
 </script>

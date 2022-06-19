@@ -79,10 +79,10 @@
 		$('#sub_btn').click(function(){
 			if(confirm("예매하시겠습니까?")==false) return;
 			location.href='reserve.do?movie_idx=' + movie_idx
-							+"&cinema_idx" + cinema_idx
-							+"&day" + day_
-							+"&time" + time
-							+"&theater_idx" + theater_idx;
+							+"&cinema_idx=" + cinema_idx
+							+"&day=" + day_
+							+"&time=" + time
+							+"&theater_idx=" + theater_idx;
 		});
 	})
 	

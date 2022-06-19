@@ -21,9 +21,20 @@ public class ReserveAction extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		int movie_idx = Integer.parseInt(request.getParameter("movie_idx"));
+		int cinema_idx = Integer.parseInt(request.getParameter("cinema_idx"));
+		int day = Integer.parseInt(request.getParameter("day"));
+		String time = request.getParameter("time");
+		int theater_idx = Integer.parseInt(request.getParameter("theater_idx"));
+		
+		request.setAttribute("movie_idx", movie_idx);
+		request.setAttribute("cinema_idx", cinema_idx);
+		request.setAttribute("day", day);
+		request.setAttribute("time", time);
+		request.setAttribute("theater_idx", theater_idx);
 		
 		//forward
-		String forward_page = "main.jsp?";
+		String forward_page = "main.jsp?menu=m_info";
 		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
 		disp.forward(request, response);
 	}

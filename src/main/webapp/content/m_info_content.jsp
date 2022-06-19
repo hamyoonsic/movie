@@ -5,12 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	#info{
+		margin: auto;
+	}
+</style>
 </head>
 <body>
-	포스터<br>
-	영화이름<br>
-	예매율<br>
-	<input type="button" value="예매하기" onclick="location.href='main.do?menu=ticket';">
+	<div id="info">
+		영화: ${ movie_idx }<br>
+		극장: ${ cinema_idx }<br>
+		날짜: ${ day }<br>
+		시간: ${ time }<br>
+		상영관: ${ theater_idx }<br>
+	</div>
 	
 </body>
 </html>
