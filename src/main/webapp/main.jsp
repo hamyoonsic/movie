@@ -65,6 +65,19 @@
 	}
 	
 	function loc_select(index, c_idx){
+		var flag = false;
+		for(var i=0; i<$('.movie').length; i++){
+			console.log( $('.movie').css("background-color"));
+			if( $('.movie').css("background-color")=="rgb(175, 210, 183)" ){
+				flag = true;
+			}
+		}
+		
+		if(flag==false){
+			alert('영화를 먼저 선택해주세요');
+			return;
+		}
+		
 		for(var i=0; i<$('.cinema').length; i++){
 			if( $('.cinema').eq(i).children('a').css("pointer-events")=="auto" ){
 				$('.cinema').eq(i).css("background-color", "#bee5eb");
