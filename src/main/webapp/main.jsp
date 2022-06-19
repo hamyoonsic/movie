@@ -67,8 +67,8 @@
 	function loc_select(index, c_idx){
 		var flag = false;
 		for(var i=0; i<$('.movie').length; i++){
-			console.log( $('.movie').css("background-color"));
-			if( $('.movie').css("background-color")=="rgb(175, 210, 183)" ){
+			console.log( $('.movie').eq(i).css("background-color"));
+			if( $('.movie').eq(i).css("background-color")=="rgb(175, 210, 183)" ){
 				flag = true;
 			}
 		}
