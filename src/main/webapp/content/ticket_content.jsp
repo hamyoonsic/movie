@@ -40,6 +40,7 @@
 	
 	#time{
 		/* display		:	inline-block;  */
+		width: 300px;
 		height: 100%;
 		float: left;
 		overflow-y: scroll;
@@ -63,6 +64,9 @@
 		text-decoration: none;
 	}
 	
+	#sub_btn{
+		margin-top: 370px;
+	}
 
 </style>
 <script type="text/javascript">
@@ -72,7 +76,16 @@
 	$(function(){
 		for(var i=0; i<10; i++)
 			$('.day').eq(i).html(day+i);
+		$('#sub_btn').click(function(){
+			if(confirm("예매하시겠습니까?")==false) return;
+			location.href='reserve.do?movie_idx=' + movie_idx
+							+"&cinema_idx" + cinema_idx
+							+"&day" + day_
+							+"&time" + time
+							+"&theater_idx" + theater_idx;
+		});
 	})
+	
 	
 	
 </script>
@@ -129,6 +142,8 @@
 
 		</div>
 	</div>
+	
+	<button id="sub_btn" type="button">예매</button>
 	
 	</div>
 </body>

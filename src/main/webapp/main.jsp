@@ -22,9 +22,13 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	var movie_idx;
+	var cinema_idx;
+	var day;
+	var time;
+	var theater_idx;
 	function movie_select(index, m_idx){
 		$('.movie').css("background-color", "#c3e6cb");
-		$('.movie').eq(index).css("background-color", "#d0e9c6");
+		$('.movie').eq(index).css("background-color", "#afd2b7");
 		
 		 while (document.getElementById("seat").hasChildNodes()) {
 			 document.getElementById("seat").removeChild(document.getElementById("seat").firstChild);
@@ -61,30 +65,61 @@
 	}
 	
 	function loc_select(index, c_idx){
+		for(var i=0; i<$('.cinema').length; i++){
+			if( $('.cinema').eq(i).children('a').css("pointer-events")=="auto" ){
+				$('.cinema').eq(i).css("background-color", "#bee5eb");
+			}else{
+				$('.cinema').eq(i).css("background-color", "gray");
+			}
+		}
 		//$('.cinema').css("background-color", "#d9edf7");
-		$('.cinema').eq(index).css("background-color", "#c4e3f3");
-		
+		$('.cinema').eq(index).css("background-color", "#aad1d7");
+			
+		cinema_idx=c_idx;
 	 $.ajax({
 			url: 'cinema_check.do',
 			data: { 'c_idx': c_idx, 'm_idx': movie_idx},
 			dataType: 'json',
 			success: function(res_data){
-				
 				while (document.getElementById("seat").hasChildNodes()) {
 					 document.getElementById("seat").removeChild(document.getElementById("seat").firstChild);
 				    }
 				 $.each(res_data, function(t_name, t_seat) {
-					 console.log(t_name);
-					 var a = $('<div>' + t_name + 
-								'(총 ' + t_seat +')<br></div>');
-					var b = $('<div class="row">'+
-						    '<div class="col-sm-4" style="width: 100px; background-color:lavender; margin-right: 5px;">13:00</div>'+
-						    '<div class="col-sm-4" style="width: 100px; background-color:lavenderblush; margin-right: 5px;">15:00</div>'+
-						    '<div class="col-sm-4" style="width: 100px; background-color:lavender;">17:00</div></div><hr>');
-					a.append(b);
-					$('#seat').prepend(a);
-				}); 
-					  
+					 //var div_p = $('<div id=""></div>');
+					 var a = $('<div class="theater_idx">' + t_name + 
+								'관(총 ' + t_seat[0] +')</div>');
+					 
+					var b = $('<div class="row"></div>');
+					for(var i=1; i<t_seat.length; i++){
+						var c = $(
+					    '<div class="col-sm-4" style="width: 100px; background-color:lavender; margin-right: 5px; margin-bottom: 5px;">'
+					    +t_seat[i]+'</div>');
+						b.append(c);
+					}
+					
+					$('#seat').append(a);
+					$('#seat').append(b);
+					$('#seat').append("<hr>"); 
+					/* 
+					$(div_p).append(a);
+					$(div_p).append(b);
+					$(div_p).append("<hr>");
+					$('#seat').append(div_p); 
+					*/
+				})
+				
+				$('.col-sm-4').click(function(){
+					theater_idx = $(this).closest('.row').prev().text().trim().substr(0, 2);
+					//theater_idx = $(this).prev().text().trim().substr(0, 2);
+					time = $(this).text().trim();
+					console.log("영화 idx:" + movie_idx + ", "+
+								"극장 idx:" + cinema_idx + ", "+
+								"날짜:" + day + ", "+
+								"영화 idx:" + theater_idx + ", "+
+								"시간:" + time);
+					$('.col-sm-4').css("background-color", "lavender");
+					$(this).css("background-color", "#dcdce6");
+				});
 				
 			},
 			error: function(err){
@@ -96,7 +131,8 @@
 	
 	function date_select(i){
 		$('.date1').css("background-color", "#ffeeba");
-		$('.date1').eq(i-1).css("background-color", "#faf2cc");
+		$('.date1').eq(i-1).css("background-color", "#ebdaa6");
+		day = $('.date1').eq(i-1).text().trim();
 	}
 	
 </script>
