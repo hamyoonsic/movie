@@ -212,6 +212,6 @@ from show left outer join theater
 on show.t_idx=theater.t_idx
 order by theater.t_idx
 
-select distinct m_idx,t_idx,t_name,t_seat,t_time from show_theater_view where m_idx=3 and c_idx=1 order by t_idx
+select distinct t_idx,t_name,t_seat,t_time from show_theater_view where m_idx=3 and c_idx=1 order by t_idx
 
 */

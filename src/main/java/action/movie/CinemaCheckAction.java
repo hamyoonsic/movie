@@ -38,28 +38,42 @@ public class CinemaCheckAction extends HttpServlet {
 		
 		JSONObject json				=	new JSONObject();
 		JSONObject json2			=	new JSONObject();
-		JSONArray jsonAarray		= 	new JSONArray();
+		
 		
 		String name="";
 		String seat	="";
-		int		idx;
+		int		idx = 0;
 		String	time;
 		//String name="";
 		
-		
+		String json_str="";
 		for(TheaterVo vo : theater_list) {
-			idx		=	vo.getT_idx();
-			name	=	vo.getT_name();
-			seat	=	vo.getT_seat();
-			time	=	vo.getT_time();
 			
-				
-			jsonAarray.add(name);
-			jsonAarray.add(seat);
-			jsonAarray.add(time);
+			JSONArray jsonAarray		= 	new JSONArray();
+			
+			/*
+			{
+			"2":["2包","170籍","9:30,11:30,16:30,18:30"] ,
+			"2":["3包","170籍","12:00"] ,
+			"2":["9包","170籍","10:30,11:30"] ,
+			}
+
+			{
+			"2":["2包","170籍","9:30,11:30,16:30,18:30,20:30","4包","155籍","10:25,13:25,15:25,17:25,19:25,21:25"],
+			"4":["2包","170籍","9:30,11:30,16:30,18:30,20:30","4包","155籍","10:25,13:25,15:25,17:25,19:25,21:25"]}
+
+			*/
+			
+			//jsonAarray.add(name);
+			idx		=	vo.getT_idx();
+			jsonAarray.add(vo.getT_name());
+			jsonAarray.add(vo.getT_seat());
+			jsonAarray.add(vo.getT_time());
+			
 			
 			json.put(idx, jsonAarray);
-				
+			json_str	=	json.toJSONString();
+			
 			
 			
 			
@@ -67,8 +81,10 @@ public class CinemaCheckAction extends HttpServlet {
 			
 			
 		}
+	
 		
-		String json_str	=	json2.toJSONString();
+		
+		
 		
 	
 		response.setContentType("text/json; charset=utf-8;");
@@ -78,15 +94,4 @@ public class CinemaCheckAction extends HttpServlet {
 	}
 
 }
-/*
-{
-"2":["2包","170籍","9:30,11:30,16:30,18:30"] ,
-"2":["3包","170籍","12:00"] ,
-"2":["9包","170籍","10:30,11:30"] ,
-}
 
-{
-"2":["2包","170籍","9:30,11:30,16:30,18:30,20:30","4包","155籍","10:25,13:25,15:25,17:25,19:25,21:25"],
-"4":["2包","170籍","9:30,11:30,16:30,18:30,20:30","4包","155籍","10:25,13:25,15:25,17:25,19:25,21:25"]}
-
-*/
