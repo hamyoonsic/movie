@@ -53,11 +53,14 @@ create table theater
 (
 	t_idx			int,						--»ó¿µ°ü¹øÈ£
 	t_name			varchar2(100) not null,		--»ó¿µ°üÀÌ¸§
-	t_seat			varchar2(100)				--»ó¿µ±­ÃÑÁÂ¼®°¹¼ö
+	t_seat			varchar2(100),				--»ó¿µ±­ÃÑÁÂ¼®°¹¼ö
+	t_time			varchar2(100)				--»ó¿µ½Ã°£
 )
 
 alter table theater
 	add constraint pk_theater_t_idx primary key(t_idx);
+
+
 
 
 

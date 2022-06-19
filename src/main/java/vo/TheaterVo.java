@@ -5,8 +5,15 @@ public class TheaterVo {
 	int t_idx;
 	String t_name;
 	String t_seat;
+	String t_time;
 	
 	
+	public String getT_time() {
+		return t_time;
+	}
+	public void setT_time(String t_time) {
+		this.t_time = t_time;
+	}
 	public int getT_idx() {
 		return t_idx;
 	}

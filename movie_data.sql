@@ -27,6 +27,7 @@ insert into theater values(seq_theater_idx.nextVal, '7관', '143석');
 insert into theater values(seq_theater_idx.nextVal, '8관', '141석');
 
 
+
 ------------------------------[member]-------------------------------
 
 select * from show
@@ -147,8 +148,14 @@ as
 
 
 
-
-
+update theater set t_time = '11:00,13:00,15:00,17:00,19:00,21:00' where t_idx=1;
+update theater set t_time = '9:30,11:30,16:30,18:30,20:30' where t_idx=2;
+update theater set t_time = '10:00,12:00,14:00,16:00,18:00,20:00' where t_idx=3;
+update theater set t_time = '10:25,13:25,15:25,17:25,19:25,21:25' where t_idx=4;
+update theater set t_time = '11:40,13:40,15:40,18:00,19:30,21:45' where t_idx=5;
+update theater set t_time = '9:15,13:15,15:00,18:15,21:15' where t_idx=6;
+update theater set t_time = '11:35,13:35,15:00,17:35,19:45,21:35' where t_idx=7;
+update theater set t_time = '8:45,9:00,11:00,15:00,23:00' where t_idx=8;
 
 
 <history>
@@ -196,16 +203,15 @@ select distinct c_idx,c_name from show_cinema_view where m_idx=1
 
 
 
-
 create or replace view show_theater_view
 as
 select distinct
 	show.m_idx, show.c_idx,
-	theater.t_idx, theater.t_name,theater.t_seat
+	theater.t_idx, theater.t_name,theater.t_seat, theater.t_time
 from show left outer join theater
 on show.t_idx=theater.t_idx
 order by theater.t_idx
 
-select distinct t_idx,t_name,t_seat from show_theater_view where m_idx=3 and c_idx=1 order by t_idx
+select distinct m_idx,t_idx,t_name,t_seat,t_time from show_theater_view where m_idx=3 and c_idx=1 order by t_idx
 
 */

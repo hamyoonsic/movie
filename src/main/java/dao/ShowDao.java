@@ -104,7 +104,7 @@ public class ShowDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select distinct t_idx,t_name,t_seat from show_theater_view where m_idx=? and c_idx=?";
+		String sql = "select distinct t_idx,t_name,t_seat,t_time from show_theater_view where m_idx=? and c_idx=?";
 
 		try {
 			//1.Connection얻어오기
@@ -130,6 +130,7 @@ public class ShowDao {
 				vo.setT_idx(rs.getInt("t_idx"));
 				vo.setT_name(rs.getString("t_name"));
 				vo.setT_seat(rs.getString("t_seat"));
+				vo.setT_time(rs.getString("t_time"));
 				
 				//list추가
 				list.add(vo);
