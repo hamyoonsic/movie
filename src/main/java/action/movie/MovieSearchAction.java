@@ -31,12 +31,6 @@ public class MovieSearchAction extends HttpServlet {
 
 		
 		
-		
-		
-		
-		
-		
-		
 		request.setCharacterEncoding("utf-8");
 		
 		
@@ -46,7 +40,7 @@ public class MovieSearchAction extends HttpServlet {
 		
 		request.setAttribute("list", list);
 		
-		String forward_page = "movie_search_list";
+		String forward_page = "/content/movie_search_list.jsp";
 		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
 		disp.forward(request, response);
 		

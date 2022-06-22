@@ -67,6 +67,7 @@ alter table theater
 
 ---------------------------------[  seat  사용안함 ]--------------------------------
 
+drop table seat
 
 create sequence seq_seat_idx
 
